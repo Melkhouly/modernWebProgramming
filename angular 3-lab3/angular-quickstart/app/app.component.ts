@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
-import { CalculatePrice } from './calculateprice.pipe';
 
 @Component({
   selector: 'my-app',
   template: `
   <h2>{{product.name}}</h2>
-  <span>Total price : {{product.price }}
+  <span>Total price : {{product.price | calculatePrice:product.qty  }}</span>
   
-`,
-pipes:[CalculatePrice]
+`
 
 })
 
