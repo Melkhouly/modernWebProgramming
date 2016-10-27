@@ -1,0 +1,59 @@
+
+
+<div class="container">
+	<h1>MyTaskList</h1>
+	<hr>
+	<!--<form class="well" (submit)="addTask($event)">
+		<div class="form-group">
+			<input type="text" [(ngModel)]="title" #txt="ngModel" 
+			  name="title" class="form-control"
+			  placeholder="Add New Task ..." required>
+			  
+			  <div *ngIf="txt.touched && !txt.valid" class="alert alert-danger"  >
+				  Task Can't be Empty.</div>
+		</div>
+	</form>-->
+
+
+	<form class="well" *ngIf="active" >
+		<div class="form-group">
+			<input type="text" [(ngModel)]="title" #txt="ngModel" name="title" class="form-control" placeholder="Add New Task ..." required>
+		</div>
+		<div *ngIf="(txt.touched && !txt.valid)|| valid " class="alert alert-danger">
+			Task Can't be Empty.</div>
+
+
+		<button type="submit" class="btn btn-primary" (click)="addTask($event)">Submit</button>
+
+
+
+	</form>
+	<hr>
+
+	<label class="col-md-1" style="color:black;">Done</label>
+	<label class="col-md-7">Tasks:</label>
+	<label class="col-md-4">Control</label>
+	<br>
+	<br>
+	<hr>
+	<div class="task-list">
+
+		<div *ngFor="let task of tasks">
+			<div class="col-md-1">
+				<input type="checkbox" [checked]="task.isDone" (click)="updateStatus(task)">
+			</div>
+			<div class="col-md-7">
+				{{task.title| uppercase}}
+			</div>
+			<div class="col-md-4">
+				<input type="button" value="Delete" (click)="deleteTask(task._id)" class="btn btn-danger" />
+				<br>
+				<br>
+			</div>
+
+		</div>
+	</div>
+
+
+
+</div>
