@@ -9,19 +9,9 @@ import { Location } from '@angular/common';
 
 
 @Component({
-  moduleId: module.id,
+  //moduleId: module.id,
   selector: 'my-product-detail',
-  template: `
-  <div *ngIf="product">
-    <h2>{{product.name}} details!</h2>
-    <div><label>id: </label>{{product.id}}</div>
-    <div>
-      <label>name: </label>
-      <input [(ngModel)]="product.name" placeholder="name"/>
-    </div>
-     <button (click)="goBack()">Back</button>
-  </div>
-  `
+  templateUrl:'app/product-detail.component.html'
 })
 
 //export class ProductDetailComponent implements OnInit {
